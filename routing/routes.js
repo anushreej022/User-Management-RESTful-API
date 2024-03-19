@@ -152,7 +152,7 @@ const storage = multer.diskStorage({
         cb(null, './images');
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // Rename file with current timestamp to avoid overwriting
+        cb(null, Date.now() + path.extname(file.originalname));
     }
 });
 
@@ -174,7 +174,7 @@ const upload = multer({
     fileFilter: function (req, file, cb) {
         checkFileType(file, cb);
     }
-}).single('file'); // Use 'file' as the field name
+}).single('file'); 
 
 // Upload image endpoint
 app.post('/user/uploadImage', function (req, res) {
@@ -185,10 +185,9 @@ app.post('/user/uploadImage', function (req, res) {
             if (req.file == undefined) {
                 res.send('Error: No File Selected!');
             } else {
-                // Here you would save the path to the database
+                // Here we would save the path to the database
                 const imagePath = req.file.path;
-                // For demonstration, let's assume Assn8 model has a field called 'imagePath'
-                // You would replace this with your actual database save operation
+                
                 var record = new Assn8({ imagePath: imagePath });
                 record.save(function (err, rec) {
                     if (err)
