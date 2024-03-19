@@ -1,4 +1,4 @@
-var Assn8 = require('./models/assn8');
+var Assn8 = require('../models/assn8');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 const multer = require('multer');
