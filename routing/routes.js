@@ -21,7 +21,8 @@ module.exports = function (app) {
         console.log(req.body);
         var regexEmail = /[a-z0-9]+@northeastern.edu/;
         var regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%&*]).{8,}$/;
-        var regExName = /^[a-zA-Z]+$/;
+        //var regExName = /^[a-zA-Z]+$/;
+        var regExName = /^[a-zA-Z\s]+$/;
         var em = req.body.email;
         var pass = req.body.password;
         var fname = req.body.full_name;
@@ -72,7 +73,8 @@ module.exports = function (app) {
         var query = { email: req.body.email };
         var regexEmail = /[a-z0-9]+@northeastern.edu/;
         var regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%&*]).{8,}$/;
-        var regExName = /^[a-zA-Z]+$/;
+        //var regExName = /^[a-zA-Z]+$/;
+        var regExName = /^[a-zA-Z\s]+$/;
         var em = req.body.email;
         var pass = req.body.password;
         var fname = req.body.full_name;
